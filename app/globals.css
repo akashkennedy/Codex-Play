@@ -1,0 +1,158 @@
+:root {
+  color-scheme: light;
+  --bg: #f4f5f9;
+  --surface: #ffffff;
+  --text: #121722;
+  --muted: #667085;
+  --line: #e8ecf4;
+  --accent: #7c83ff;
+  --radius: 14px;
+  --item-padding: 0.85rem;
+}
+
+html[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #0f1217;
+  --surface: #151a22;
+  --text: #f2f4f8;
+  --muted: #9aa4b2;
+  --line: #293142;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.app-shell {
+  width: min(820px, 100%);
+  margin: 0 auto;
+  padding: 0.95rem;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.header,
+.list-head,
+.item,
+.item-right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.eyebrow,
+.muted {
+  color: var(--muted);
+  margin: 0;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+.card {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 0.9rem;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.custom-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.form {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: 0.7rem;
+}
+
+.input,
+.btn,
+.control {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: inherit;
+  border-radius: calc(var(--radius) - 4px);
+  padding: 0.66rem 0.72rem;
+  font: inherit;
+}
+
+.control {
+  width: 44px;
+  height: 44px;
+}
+
+.btn {
+  background: var(--accent);
+  border-color: transparent;
+  color: white;
+  font-weight: 600;
+}
+
+.list {
+  list-style: none;
+  margin: 0.6rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.item {
+  border: 1px solid var(--line);
+  border-radius: calc(var(--radius) - 4px);
+  padding: var(--item-padding);
+}
+
+.item-title {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.link {
+  border: none;
+  background: none;
+  color: var(--accent);
+  padding: 0;
+  cursor: pointer;
+}
+
+.error {
+  color: #ef4444;
+  margin-top: 0.4rem;
+}
+
+@media (max-width: 720px) {
+  .grid-2,
+  .custom-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .item-right {
+    width: 100%;
+  }
+}
